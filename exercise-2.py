@@ -3,18 +3,15 @@ Exercise 2
 """
 
 # PART 1: Gather Information
-#
-# TODO: Gather information about the source of the error and paste your findings here. E.g.:
-# - What is the expected vs. the actual output?
-# - What error message (if any) is there?
-# - What line number is causing the error?
-# - What can you deduce about the cause of the error?
-
+# - Expected outputs (sequentially) are False and True. Actual results are False and False.
+# - There is no traceback/error, which means the problem might be a logic error.
+# - The problematic lines are in the flow of the conditional that checks if numbers are consecutive.
 
 # PART 2: State Assumptions
-#
-# TODO: State your assumptions here or say them out loud to your partner ...
-# Make sure to be SPECIFIC about what each of your assumptions is!
+# - Within the conditional statement, we assume that the loop will repeat itself for each index in the loop range.
+#   If we test this out, we see that actually what's happening is that the function terminates
+#   after just one conditional check. This is because there is a return statement in all branches of the if statement.
+#   This must be the source of the bug.
 
 def contains_3_consecutive(list_of_nums):
     """Return True if the list contains 3 consecutive numbers each increasing by 1."""
