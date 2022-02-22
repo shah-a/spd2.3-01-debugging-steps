@@ -3,19 +3,15 @@ Exercise 3
 """
 
 # PART 1: Gather Information
-#
-# TODO: Gather information about the source of the error and paste your findings here. E.g.:
-# - What is the expected vs. the actual output?
-# - What error message (if any) is there?
-# - What line number is causing the error?
-# - What can you deduce about the cause of the error?
-
+# - The input array is [5, 2, 3, 1, 6], so the expected output is [1, 2, 3, 5, 6]. The actual result is an error.
+# - The error message specifies that the problem is an IndexError (index out of range) on the line where `key` is compared to `arr[j]`
+# - Within the while loop, `j` is decremented. This causes arr[j] in the `while` statement to eventually be arr[-6].
+# - There are only 5 elements in the array, so arr[-6] must be causing the error
 
 # PART 2: State Assumptions
-#
-# TODO: State your assumptions here or say them out loud to your partner ...
-# Make sure to be SPECIFIC about what each of your assumptions is!
-# HINT: It may help to draw a picture to clarify what your assumptions are.
+# - As `i` traverses each array element, we assume that `j` in the while loop goes from `i-1` to 0.
+#   - If we test this, we see that `j` eventually passes 0 and enters the range of negative integers. This is the source of the bug.
+#     We can confirm by adding `j >= 0` as a condition to the while loop to test if it solves the bug.
 
 def insertion_sort(arr):
     """Performs an Insertion Sort on the array arr."""
